@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 public class PlayerController implements Initializable {
 
+    private boolean paused = true;
     @FXML
     private Pane playPane;
     @FXML
@@ -24,6 +25,16 @@ public class PlayerController implements Initializable {
     @FXML
     private ProgressBar songProgressBar;
 
+    public void playSong(){
+        if (paused){
+            songPlayingLabel.setText("Playing");
+            paused = false;
+        }
+        else {
+            songPlayingLabel.setText("Paused");
+            paused = true;
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
